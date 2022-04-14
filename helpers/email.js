@@ -9,18 +9,18 @@ const transport = nodemailer.createTransport({
     port: process.env.EMAIL_PORT,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      pass: process.env.EMAIL_PASS,
     },
   });
 
 //Informacion del email
 
 const info = await transport.sendMail({ 
-    from: '"app_tareas MERN - Administrador de proyectos" <cuentas@app_tareas.com',
+    from: '"APPMERN - Administrador de proyectos" <cuentas@appmern.com',
     to: email,
-    subject: "app_tareas - Comprueba tu cuenta",
-    text: "Comprueba tu cuenta en app_tareas",
-    html: `<p>Hola: ${nombre} comprueba tu cuenta en app_tareas.</p>
+    subject: "APPMERN - Comprueba tu cuenta",
+    text: "Comprueba tu cuenta en APPMERN",
+    html: `<p>Hola: ${nombre} comprueba tu cuenta en APPMERN.</p>
     <p>Tu cuenta ya esta casi lista, solo debes comprobarla en el siguiente enlace:
     
     <a href="${process.env.FRONTEND_URL}/confirmar/${token}">Comprobar Cuenta</a></p>    
@@ -39,21 +39,21 @@ export const emailOlvidePassword = async (datos) =>{
     port: process.env.EMAIL_PORT,
     auth: {
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      pass: process.env.EMAIL_PASS,
       },
     });
   
   //Informacion del email
   
   const info = await transport.sendMail({ 
-      from: '"app_tareas MERN - Administrador de proyectos" <cuentas@app_tareas.com',
+      from: '"APPMERN - Administrador de proyectos" <cuentas@appmern.com',
       to: email,
-      subject: "app_tareas - Reestablece tu constraseña",
+      subject: "APPMERN - Reestablece tu constraseña",
       text: "Reestablece tu constraseña",
       html: `<p>Hola: ${nombre} has solicitado reestablecer tu contraseña.</p>
-      <p>Sigue el siguiente enlace para generar una nueva contraseña:
+      <>Sigue el siguiente enlace para generar una nueva contraseña:
       
-      <a href="${process.env.FRONTEND_URL}/olvide-password/${token}">Reestablecer Contraseña</a></p>    
+      <a href="${process.env.FRONTEND_URL}/olvide-password/${token}">Reestablecer Contraseña</a>    
   
       <p>Si tu no solicitaste este email, puedes ignorar el mensaje.</p>
       `
